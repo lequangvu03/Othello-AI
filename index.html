@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Othello JS</title>
+    <link
+      href="vendor/twitter-bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="vendor/twitter-bootstrap/css/bootstrap-responsive.min.css"
+      rel="stylesheet"
+    />
+    <link href="app.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="main" class="container">
+      <header class="header">
+        <div id="header-left">
+          <div class="nav-item">
+            <a
+              class="nav-item-link"
+              href="./pages/guild/index.html"
+              target="_blank"
+              >Guild
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="instruction-icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div id="header-right">
+          <div class="nav-item">
+            <button id="restart" class="button-rounded">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="restart-icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="nav-item">
+            <button id="hamburger" class="button-rounded">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="hamburger-icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+      <div class="black-player-wrapper">
+        <div class="player black-player">
+          <div id="current-player-name"></div>
+          <div id="black-score"></div>
+        </div>
+      </div>
+      <div id="game-board"></div>
+      <div class="white-player-wrapper">
+        <div class="player white-player">
+          <div id="white-score"></div>
+          <div id="opposite-player-name"></div>
+        </div>
+      </div>
+
+      <div id="console"></div>
+      <div id="preference-pane">
+        <div class="mode">
+          <header class="header">
+            <div id="header-left">
+              <div class="nav-item">
+                <a
+                  class="nav-item-link"
+                  href="./pages/guild/index.html"
+                  target="_blank"
+                  >Guild
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="instruction-icon"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div id="header-right">
+              <div class="nav-item">
+                <button id="btn-close" class="button-rounded">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="close-icon"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 18 18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </header>
+          <div>
+            <h2 class="mode-title">Chọn chế độ chơi</h2>
+            <div id="mode-1" class="game-mode" data-mode="human">
+              <span>Human - Human</span>
+            </div>
+          </div>
+          <div>
+            <div id="mode-2" class="game-mode" data-mode="bot">
+              <span>Human - Robot</span>
+            </div>
+            <div id="game-level-wrapper">
+              Độ khó
+              <div id="game-level">
+                <div class="level-item" data-level="test-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="star-icon"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                    />
+                  </svg>
+                </div>
+                <div class="level-item" data-level="weighted-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="star-icon"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="star-icon"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <!-- <select id="white-player-type">
+              <option value="human">Human</option>
+              <option value="test-4">Test AI (looks ahead 4 moves)</option>
+              <option value="weighted-4" selected>
+                Weighted AI (looks ahead 4 moves)
+              </option>
+            </select>
+          </div>
+          <button id="start-button" class="btn btn-primary" type="submit">
+            Start a new game
+          </button>
+          <button id="resume-button" class="btn btn-primary" type="button">
+            Resume
+          </button> -->
+        </div>
+      </div>
+    </div>
+    <!-- MODAL -->
+    <div id="modal-result">
+      <div class="container">
+        <div id="modal-content">
+          <div id="result-scores-wrapper">
+            <div class="result-score-player">
+              <div id="black-result-score"></div>
+              <div id="black-result-score-count"></div>
+            </div>
+            <div class="result-score-player">
+              <div id="white-result-score"></div>
+              <div id="white-result-score-count"></div>
+            </div>
+          </div>
+          <div id="winner"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="vendor/jquery/jquery-1.9.1.min.js"></script>
+    <script src="vendor/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
