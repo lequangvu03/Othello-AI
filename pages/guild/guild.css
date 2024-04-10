@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.4;
+}
+body {
+  background: #000;
+}
+.container {
+  min-height: 100vh;
+  padding: 1em 16px;
+  background-color: #222222;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  max-width: 450px;
+  color: #bfbfbf;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+li {
+  padding-bottom: 6px;
+}
+
+h1 {
+  text-align: center;
+}
+h2,
+hr {
+  margin: 16px 0;
+}

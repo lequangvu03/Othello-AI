@@ -1,4 +1,3 @@
 # Othello JS
 
-A quick and dirty implementation of [Othello (Reversi)](http://en.wikipedia.org/wiki/Reversi).
-[Try it online](http://kana.github.com/othello-js/).
+**Demo:** [https://game-othello2.netlify.app/](https://game-othello2.netlify.app/)
