@@ -131,6 +131,12 @@ body {
 }
 
 .game-mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: 600;
   max-width: 200px;
   width: 100%;
   margin: 16px auto;
@@ -138,7 +144,9 @@ body {
   border-radius: 8px;
   background: var(--green-color);
   transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
 }
+
 .game-mode:hover,
 .game-mode.active {
   cursor: pointer;
